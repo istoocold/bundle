@@ -1,0 +1,97 @@
+[gd_scene load_steps=5 format=3 uid="uid://v1ku0rg0ij0h"]
+
+[ext_resource type="Script" uid="uid://bdhtsxjjq6d4g" path="res://slidingpuzzle.gd" id="1_jwv3a"]
+[ext_resource type="Script" uid="uid://dok1q4g1yaiaq" path="res://puzzle_board.gd" id="2_dopym"]
+[ext_resource type="Texture2D" uid="uid://crp5tn0abqhdd" path="res://border (2)-export.png" id="3_ootpb"]
+[ext_resource type="Texture2D" uid="uid://pxsjd88u6ryg" path="res://67.png" id="3_v38iq"]
+
+[node name="SlidingPuzzle" type="Node2D"]
+script = ExtResource("1_jwv3a")
+
+[node name="UI" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Camera2D" type="Camera2D" parent="UI"]
+position = Vector2(635, 11)
+zoom = Vector2(0.8, 0.8)
+
+[node name="PuzzleContainer" type="MarginContainer" parent="UI"]
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -236.0
+offset_right = -32.0
+offset_bottom = 236.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PuzzleContainer"]
+z_index = 1
+layout_mode = 2
+
+[node name="PuzzleBoard" type="GridContainer" parent="UI/PuzzleContainer/VBoxContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 3
+script = ExtResource("2_dopym")
+
+[node name="Tile1" type="TextureRect" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard"]
+layout_mode = 2
+
+[node name="Tile2" type="TextureRect" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard"]
+layout_mode = 2
+
+[node name="Tile3" type="TextureRect" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard"]
+layout_mode = 2
+
+[node name="Tile4" type="TextureRect" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard"]
+layout_mode = 2
+
+[node name="Tile5" type="TextureRect" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard"]
+layout_mode = 2
+
+[node name="Tile6" type="TextureRect" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard"]
+layout_mode = 2
+
+[node name="Tile7" type="TextureRect" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard"]
+layout_mode = 2
+
+[node name="Tile8" type="TextureRect" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard"]
+layout_mode = 2
+
+[node name="EmptySpace" type="Control" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard/EmptySpace"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -13.0
+offset_right = 227.0
+offset_bottom = 204.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_v38iq")
+
+[node name="ButtonContainer" type="HBoxContainer" parent="UI/PuzzleContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ResetButton" type="Button" parent="UI/PuzzleContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+
+[node name="Background" type="TextureRect" parent="."]
+z_as_relative = false
+texture_filter = 1
+offset_left = 29.0
+offset_top = -595.0
+offset_right = 1100.0
+offset_bottom = 446.04004
+texture = ExtResource("3_ootpb")

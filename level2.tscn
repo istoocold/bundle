@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://dprpcfeys10v"]
+
+[node name="SlidingPuzzle" type="Node2D"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="PuzzleContainer" type="MarginContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Background" type="TextureRect" parent="UI/PuzzleContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PuzzleContainer"]
+layout_mode = 2
+
+[node name="PuzzleBoard" type="GridContainer" parent="UI/PuzzleContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 3
+
+[node name="Tile1" type="TextureRect" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard"]
+layout_mode = 2
+
+[node name="Tile2" type="TextureRect" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard"]
+layout_mode = 2
+
+[node name="Tile3" type="TextureRect" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard"]
+layout_mode = 2
+
+[node name="Tile4" type="TextureRect" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard"]
+layout_mode = 2
+
+[node name="Tile5" type="TextureRect" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard"]
+layout_mode = 2
+
+[node name="Tile6" type="TextureRect" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard"]
+layout_mode = 2
+
+[node name="Tile7" type="TextureRect" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard"]
+layout_mode = 2
+
+[node name="Tile8" type="TextureRect" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard"]
+layout_mode = 2
+
+[node name="EmptySpace" type="Control" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard"]
+layout_mode = 2
+
+[node name="ButtonContainer" type="HBoxContainer" parent="UI/PuzzleContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ResetButton" type="Button" parent="UI/PuzzleContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
