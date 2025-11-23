@@ -1,22 +1,23 @@
-[gd_scene format=3 uid="uid://dprpcfeys10v"]
+[gd_scene load_steps=5 format=3 uid="uid://dprpcfeys10v"]
+
+[ext_resource type="Script" uid="uid://q2yojm4cxk54" path="res://puzzle_container.gd" id="1_r40rm"]
+[ext_resource type="Script" uid="uid://ji4rs0s7l3pa" path="res://puzzle_boardlvelel2.gd" id="2_6q4t8"]
+[ext_resource type="Texture2D" uid="uid://dsihd42d70wmu" path="res://border lvl 2 f .png" id="2_8tcn8"]
+[ext_resource type="Texture2D" uid="uid://pxsjd88u6ryg" path="res://67.png" id="3_8tcn8"]
 
 [node name="SlidingPuzzle" type="Node2D"]
+script = ExtResource("1_r40rm")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="PuzzleContainer" type="MarginContainer" parent="UI"]
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
-
-[node name="Background" type="TextureRect" parent="UI/PuzzleContainer"]
-layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/PuzzleContainer"]
 layout_mode = 2
@@ -27,7 +28,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/h_separation = 5
 theme_override_constants/v_separation = 5
-columns = 3
+columns = 4
+script = ExtResource("2_6q4t8")
 
 [node name="Tile1" type="TextureRect" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard"]
 layout_mode = 2
@@ -53,12 +55,53 @@ layout_mode = 2
 [node name="Tile8" type="TextureRect" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard"]
 layout_mode = 2
 
+[node name="Tile9" type="TextureRect" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard"]
+layout_mode = 2
+
+[node name="Tile10" type="TextureRect" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard"]
+layout_mode = 2
+
+[node name="Tile11" type="TextureRect" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard"]
+layout_mode = 2
+
+[node name="Tile12" type="TextureRect" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard"]
+layout_mode = 2
+
+[node name="Tile13" type="TextureRect" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard"]
+layout_mode = 2
+
+[node name="Tile14" type="TextureRect" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard"]
+layout_mode = 2
+
+[node name="Tile15" type="TextureRect" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard"]
+layout_mode = 2
+
 [node name="EmptySpace" type="Control" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard"]
 layout_mode = 2
 
-[node name="ButtonContainer" type="HBoxContainer" parent="UI/PuzzleContainer/VBoxContainer"]
-layout_mode = 2
+[node name="TextureRect" type="TextureRect" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard/EmptySpace"]
+layout_mode = 0
+offset_top = 7.0
+offset_right = 240.0
+offset_bottom = 211.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_8tcn8")
+
+[node name="ButtonContainer" type="HBoxContainer" parent="UI"]
+offset_left = 605.0
+offset_top = 560.0
+offset_right = 613.0
+offset_bottom = 568.0
 alignment = 1
 
-[node name="ResetButton" type="Button" parent="UI/PuzzleContainer/VBoxContainer/ButtonContainer"]
+[node name="ResetButton" type="Button" parent="UI/ButtonContainer"]
 layout_mode = 2
+
+[node name="Background" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 238.0
+offset_top = -132.0
+offset_right = 799.0
+offset_bottom = 429.0
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_8tcn8")

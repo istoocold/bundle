@@ -1,3 +1,2 @@
-res://level1.tscn
-res://puzzle_board.gd
-res://slidingpuzzle.gd
+res://tuto.tscn
+res://tuto.gd
