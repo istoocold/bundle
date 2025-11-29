@@ -152,8 +152,14 @@ func check_solved() -> bool:
 func on_puzzle_solved():
 	print("Puzzle solved!")
 	
-	if OS.has_feature("web"):
-		JavaScriptBridge.eval("window.postMessage({type: 'puzzle_solved'}, '*');")
+	
+	await get_tree().create_timer(0.5).timeout
+	
+	
+	get_tree().change_scene_to_file("res://control.tscn")
+	
+	
+	 
 
 func reset_puzzle():
 	shuffle_puzzle()

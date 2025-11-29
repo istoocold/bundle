@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://r0n27p5vmkxr"]
+
+[ext_resource type="Script" uid="uid://df6g453cbtis7" path="res://tuto.gd" id="1_381v5"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_381v5")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 336.0
+offset_bottom = 296.0
+text = "a fucking label"

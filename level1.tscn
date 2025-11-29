@@ -1,27 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://v1ku0rg0ij0h"]
+[gd_scene load_steps=8 format=3 uid="uid://v1ku0rg0ij0h"]
 
 [ext_resource type="Script" uid="uid://bdhtsxjjq6d4g" path="res://slidingpuzzle.gd" id="1_jwv3a"]
 [ext_resource type="Script" uid="uid://dok1q4g1yaiaq" path="res://puzzle_board.gd" id="2_dopym"]
 [ext_resource type="Texture2D" uid="uid://crp5tn0abqhdd" path="res://border (2)-export.png" id="3_ootpb"]
 [ext_resource type="Texture2D" uid="uid://pxsjd88u6ryg" path="res://67.png" id="3_v38iq"]
+[ext_resource type="Texture2D" uid="uid://onekpuu8ru0b" path="res://resetbttn.png" id="4_crycw"]
+[ext_resource type="Texture2D" uid="uid://cff04oju2yw7y" path="res://backbtn.png" id="5_i2041"]
+[ext_resource type="Texture2D" uid="uid://cdaxw2togtw5n" path="res://background.png" id="7_i2041"]
 
 [node name="SlidingPuzzle" type="Node2D"]
 script = ExtResource("1_jwv3a")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(560, -80)
+scale = Vector2(0.6, 1)
+zoom = Vector2(1.39, 1.39)
+
 [node name="UI" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
-[node name="Camera2D" type="Camera2D" parent="UI"]
-position = Vector2(635, 11)
-zoom = Vector2(0.8, 0.8)
-
 [node name="PuzzleContainer" type="MarginContainer" parent="UI"]
-z_index = 1
+z_index = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 280.0
 offset_top = -236.0
-offset_right = -32.0
+offset_right = 200.0
 offset_bottom = 236.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -69,6 +74,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="EmptySpace" type="Control" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard"]
+texture_filter = 1
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="UI/PuzzleContainer/VBoxContainer/PuzzleBoard/EmptySpace"]
@@ -80,18 +86,39 @@ offset_bottom = 204.0
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_v38iq")
 
-[node name="ButtonContainer" type="HBoxContainer" parent="UI/PuzzleContainer/VBoxContainer"]
-layout_mode = 2
-alignment = 1
+[node name="ButtonContainer" type="HBoxContainer" parent="UI"]
+offset_left = 491.0
+offset_top = 153.0
+offset_right = 647.0
+offset_bottom = 309.0
+scale = Vector2(0.9, 0.9)
 
-[node name="ResetButton" type="Button" parent="UI/PuzzleContainer/VBoxContainer/ButtonContainer"]
+[node name="ResetButton" type="Button" parent="UI/ButtonContainer"]
+texture_filter = 1
 layout_mode = 2
+icon = ExtResource("4_crycw")
+flat = true
+
+[node name="backbutton" type="Button" parent="UI/ButtonContainer"]
+texture_filter = 1
+layout_mode = 2
+icon = ExtResource("5_i2041")
+flat = true
 
 [node name="Background" type="TextureRect" parent="."]
+z_index = 1
 z_as_relative = false
 texture_filter = 1
-offset_left = 29.0
+offset_left = 30.0
 offset_top = -595.0
-offset_right = 1100.0
+offset_right = 1101.0
 offset_bottom = 446.04004
 texture = ExtResource("3_ootpb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 296.0
+offset_top = -624.0
+offset_right = 832.0
+offset_bottom = 392.0
+texture = ExtResource("7_i2041")

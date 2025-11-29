@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      width: 400px;
+      height: 600px;
+      overflow: hidden;
+      position: relative;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      pointer-events: auto;
+    }
+    
+    .button-container {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 1000;
+      display: flex;
+      gap: 8px;
+      pointer-events: none;
+    }
+    
+    .btn {
+      width: 35px;
+      height: 35px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      pointer-events: auto;
+    }
+    
+    .btn:hover {
+      background-color: white;
+      transform: scale(1.1);
+    }
+    
+    .btn:active {
+      transform: scale(0.95);
+    }
+    
+    .btn img {
+      width: 20px;
+      height: 20px;
+      pointer-events: none;
+    }
+    
+    .overlay {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .overlay.show {
+      display: flex;
+    }
+    
+    .info-box {
+      background: white;
+      width: 280px;
+      max-height: 420px;
+      border-radius: 12px;
+      padding: 20px;
+      position: relative;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      overflow-y: auto;
+    }
+    
+    .exit {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 28px;
+      height: 28px;
+      border: none;
+      background: black;
+      color: white;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 1;
+      transition: transform 0.2s;
+      pointer-events: auto;
+    }
+    
+    .exit:hover {
+      transform: rotate(90deg);
+    }
+    
+    .exit:active {
+      transform: scale(0.9);
+    }
+    
+    .info-box h2 {
+      margin-top: 0;
+      color: #333;
+      font-family: Arial, sans-serif;
+      font-size: 20px;
+    }
+    
+    .info-box p {
+      color: #666;
+      line-height: 1.6;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+    }
+    
+    .intro-section {
+      margin-bottom: 20px;
+      padding: 15px;
+      background: linear-gradient(135deg, #667eea 0%, #77ec56 100%);
+      border-radius: 8px;
+      color: white;
+    }
+    
+    .intro-section h2 {
+      color: white;
+      margin-top: 0;
+      font-size: 22px;
+    }
+    
+    .intro-section p {
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 13px;
+      margin: 8px 0;
+    }
+    
+    .game-controls {
+      margin-top: 15px;
+      padding: 12px;
+      background: #f5f5f5;
+      border-radius: 8px;
+    }
+    
+    .game-controls h3 {
+      margin-top: 0;
+      color: #333;
+      font-size: 14px;
+    }
+    
+    .game-controls ul {
+      margin: 8px 0;
+      padding-left: 18px;
+      color: #666;
+      font-size: 12px;
+    }
+    
+    .game-controls li {
+      margin: 5px 0;
+    }
+    
+    .puzzle-icon {
+      display: inline-block;
+      background: #667eea;
+      color: white;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 11px;
+    }
+    
+    .outro-section {
+      margin-top: 15px;
+      padding: 12px;
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      border-radius: 4px;
+    }
+    
+    .outro-section p {
+      color: #856404;
+      font-size: 12px;
+      margin: 5px 0;
+    }
+    
+    .outro-section strong {
+      color: #664d03;
+    }
+  </style>
+</head>
+<body>
+  <div class="button-container">
+    <button class="btn" id="help" title="How to Play">
+      <span style="font-size: 20px; font-weight: bold; pointer-events: none;">i</span>
+    </button>
+    <button class="btn" id="repo" title="View on GitHub">
+      <img src="image.png" alt="GitHub">
+    </button>
+  </div>
+
+  <iframe src="media/index.html"></iframe>
+
+  <div class="overlay" id="instructions">
+    <div class="info-box">
+      <button class="exit" id="dismiss">×</button>
+      
+      <div class="intro-section">
+        <h2> Bundle</h2>
+        <p>Your stress-relief companion right in your browser! Bundle is a collection of quick, engaging games designed to help you decompress during work without leaving your desk.</p>
+        <p style="font-size: 12px; margin-top: 10px;">Take a break, clear your mind, and grind refreshed! 🌟</p>
+      </div>
+      
+      <h2>How to Play Sliding Puzzle</h2>
+      <p>Solve beautiful sliding puzzles in two difficulty modes:</p>
+      
+      <div class="game-controls">
+        <h3> Game Modes</h3>
+        <ul>
+          <li><strong>3×3 Puzzle</strong> - Classic 8-tile sliding puzzle</li>
+          <li><strong>4×4 Puzzle</strong> - Advanced 15-tile challenge</li>
+        </ul>
+      </div>
+      
+      <div class="game-controls">
+        <h3> How to Play</h3>
+        <ul>
+          <li>Look for the empty tile marked with the <span class="puzzle-icon">67</span> icon</li>
+          <li><strong>Click on any tile adjacent</strong> to the <span class="puzzle-icon">67</span> tile</li>
+          <li>The clicked tile will swap places with the <span class="puzzle-icon">67</span> tile</li>
+          <li>Keep sliding tiles until the complete image is formed</li>
+          <li>Only tiles directly next to the empty space can be moved</li>
+        </ul>
+      </div>
+      
+      <div class="game-controls">
+        <h3>✨ Quality of Life Features</h3>
+        <ul>
+          <li><strong>Quick Access</strong> - Play instantly from your browser toolbar</li>
+          <li><strong>No Installation</strong> - Lightweight extension, minimal footprint</li>
+          <li><strong>Instant Restart</strong> - Reset puzzle anytime for a fresh challenge</li>
+          <li><strong>Compact Design</strong> - Fits perfectly in your sidebar</li>
+        </ul>
+      </div>
+      
+      <div class="outro-section">
+        <p><strong>🎪 Made for Carnival!</strong></p>
+        <p>This extension was created for #carnival, by <strong>hackclub.com</strong> </p>
+        <p style="margin-top: 10px;">Want to see how it's made or contribute? Click the <strong>GitHub button</strong> above to view the source code and learn more about the project! It's FOSS!</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
+

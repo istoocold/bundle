@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckpcgocnfofqf"]
+
+[ext_resource type="Script" uid="uid://3up3wtnaui8j" path="res://mainmenu.gd" id="1_0fbet"]
+[ext_resource type="Texture2D" uid="uid://cdaxw2togtw5n" path="res://background.png" id="2_ee4bf"]
+[ext_resource type="Texture2D" uid="uid://bjldpjihlriwf" path="res://lvl1btn.png" id="2_qtu10"]
+[ext_resource type="Texture2D" uid="uid://urnhdo1xt7c0" path="res://lvl2btn.png" id="3_ee4bf"]
+
+[node name="userinterface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0fbet")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 47.0
+offset_right = 521.0
+offset_bottom = 785.0
+texture = ExtResource("2_ee4bf")
+
+[node name="lvl1" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 129.0
+offset_top = 298.0
+offset_right = 213.0
+offset_bottom = 382.0
+texture_normal = ExtResource("2_qtu10")
+
+[node name="lvl2" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 326.0
+offset_top = 298.0
+offset_right = 410.0
+offset_bottom = 382.0
+texture_normal = ExtResource("3_ee4bf")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_top = 222.0
+offset_right = 1134.0
+offset_bottom = 245.0
+text = "ff"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(285, 390)
+scale = Vector2(1, 1.5)
+zoom = Vector2(1.5, 1.5)

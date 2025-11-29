@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Bundle",
+  "version": "1.0.0",
+  "description": "Play your Godot game in Chrome",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "sandbox": {
+    "pages": ["media/index.html"]
+  },
+  "permissions": []
+}

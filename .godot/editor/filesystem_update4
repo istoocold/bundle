@@ -1,2 +1,5 @@
-res://tuto.tscn
-res://tuto.gd
+res://puzzle_board.gd
+res://control.tscn
+res://puzzle_boardlvelel2.gd
+res://level2.tscn
+res://level1.tscn
